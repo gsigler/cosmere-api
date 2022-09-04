@@ -1,4 +1,5 @@
 using API.Cosmere.Data.DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Cosmere.Data.Model;
 
@@ -10,14 +11,19 @@ public class RealmRepository : IRepository<Realm>
     {
         _context = context;
     }
-    public void Save(Realm value)
+    public async Task SaveAsync(Realm value)
     {
-        _context.Realm.Add(value);
-        _context.SaveChanges();
+        await _context.Realm.AddAsync(value);
+        await _context.SaveChangesAsync();
     }
 
-    public List<Realm> List()
+    public async Task<Realm?> GetAsync(int id)
     {
-        return _context.Realm.ToList();
+        return await _context.Realm.SingleOrDefaultAsync(r => r.ID == id);
+    }
+
+    public async Task<List<Realm>> ListAsync()
+    {
+        return await _context.Realm.ToListAsync();
     }
 }

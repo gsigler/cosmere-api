@@ -2,7 +2,8 @@ namespace API.Cosmere.Data.Model
 {
     public interface IRepository<T> where T : class
     {
-        public void Save(T value);
-        public List<T> List();
+        public Task SaveAsync(T value);
+        public Task<T?> GetAsync(int id);
+        public Task<List<T>> ListAsync();
     }
 }
