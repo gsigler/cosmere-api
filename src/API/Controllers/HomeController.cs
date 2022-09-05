@@ -5,9 +5,10 @@ namespace API.Cosmere.Controllers;
 
 [ApiController]
 [Route("/")]
+[Route("api/")]
 public class HomeController : ControllerBase
 {
-    private const string baseUrl = "https://localhost:7071";
+    private const string baseUrl = "https://localhost:7071/api";
     private readonly ILogger<PlanetsController> _logger;
 
     public HomeController(ILogger<PlanetsController> logger)
@@ -20,7 +21,8 @@ public class HomeController : ControllerBase
         return new Dictionary<string, string>(){
             {"realms", $"{baseUrl}/realms"},
             {"systems",  $"{baseUrl}/systems"},
-            {"planets", $"{baseUrl}/planets"}
+            {"planets", $"{baseUrl}/planets"},
+            {"books", $"{baseUrl}/books"},
         };
     }
 

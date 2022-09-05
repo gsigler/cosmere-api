@@ -36,14 +36,26 @@ public class DbInitializer
             new Planet() {Name = "Roshar"}
         };
 
+        _context.Planets.AddRange(nalthianPlanets);
+        _context.Planets.AddRange(rosharanPlanets);
+
         var systems = new List<Data.Model.System>(){
             new Data.Model.System() {Name = "Nalthian", Planets = nalthianPlanets},
             new Data.Model.System() {Name = "Rosharan", Planets = rosharanPlanets}
         };
 
         _context.Systems.AddRange(systems);
-        _context.Planets.AddRange(nalthianPlanets);
-        _context.Planets.AddRange(rosharanPlanets);
+
+        var books = new List<Data.Model.Book>(){
+            new Data.Model.Book() {
+                Title = "The Way of Kings",
+                Author = new List<string>(){"Brandon Sanderson"},
+                // PublicationDate = DateTime.Parse("August 31, 2010"),
+                Pages = 1007
+            }
+        };
+
+        _context.Books.AddRange(books);
 
         _context.SaveChanges();
     }

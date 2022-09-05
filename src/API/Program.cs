@@ -20,6 +20,7 @@ builder.Services.AddDbContext<CosmereContext>(options =>
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Realm>, RealmRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Planet>, PlanetRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.System>, SystemRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Book>, BookRepository>();
 builder.Services.AddTransient<DbInitializer>();
 
 

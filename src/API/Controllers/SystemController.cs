@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Cosmere.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class SystemsController : ControllerBase
 {
     private readonly ILogger<SystemsController> _logger;

@@ -13,6 +13,8 @@ namespace API.Cosmere.Data.DAL
         public DbSet<Realm> Realms { get; set; }
         public DbSet<Planet> Planets { get; set; }
         public DbSet<Data.Model.System> Systems { get; set; }
+        public DbSet<Data.Model.Book> Books { get; set; }
+
 
     }
 }

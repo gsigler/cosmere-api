@@ -1,7 +1,7 @@
 using AutoMapper;
 public class AutoMapping : Profile
 {
-    public const string baseUrl = "https://localhost:7071";
+    public const string baseUrl = "https://localhost:7071/api";
     public AutoMapping()
     {
         CreateMap<API.Cosmere.Data.Model.Planet, API.Cosmere.Repository.DTO.Planet>()
@@ -13,5 +13,8 @@ public class AutoMapping : Profile
 
         CreateMap<API.Cosmere.Data.Model.Realm, API.Cosmere.Repository.DTO.Realm>()
             .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/realms/{src.ID}/"));
+
+        CreateMap<API.Cosmere.Data.Model.Book, API.Cosmere.Repository.DTO.Book>()
+            .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/books/{src.ID}/"));
     }
 }
