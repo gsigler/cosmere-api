@@ -1,4 +1,4 @@
-using API.Cosmere.Data.Model;
+using API.Cosmere.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Cosmere.Controllers;
@@ -8,16 +8,16 @@ namespace API.Cosmere.Controllers;
 public class RealmsController : ControllerBase
 {
     private readonly ILogger<RealmsController> _logger;
-    private IRepository<Realm> _realmRepository;
+    private IRepository<Repository.DTO.Realm> _realmRepository;
 
-    public RealmsController(ILogger<RealmsController> logger, IRepository<Realm> realmRepository)
+    public RealmsController(ILogger<RealmsController> logger, IRepository<Repository.DTO.Realm> realmRepository)
     {
         _logger = logger;
         _realmRepository = realmRepository;
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Realm>> Get(int id)
+    public async Task<ActionResult<Repository.DTO.Realm>> Get(int id)
     {
         var realm = await _realmRepository.GetAsync(id);
 
@@ -29,7 +29,7 @@ public class RealmsController : ControllerBase
         return realm;
     }
 
-    public async Task<ActionResult<List<Realm>>> List()
+    public async Task<ActionResult<List<Repository.DTO.Realm>>> List()
     {
         var realms = await _realmRepository.ListAsync();
 

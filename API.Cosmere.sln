@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "src\Data\Data.cspro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Cosmere", "src\API\API.Cosmere.csproj", "{FB10A01B-5995-4B74-8BA6-099666FD053A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "src\Repository\Repository.csproj", "{C2AD7981-5876-464E-B85B-505419604F23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +34,14 @@ Global
 		{FB10A01B-5995-4B74-8BA6-099666FD053A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB10A01B-5995-4B74-8BA6-099666FD053A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB10A01B-5995-4B74-8BA6-099666FD053A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2AD7981-5876-464E-B85B-505419604F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2AD7981-5876-464E-B85B-505419604F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2AD7981-5876-464E-B85B-505419604F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2AD7981-5876-464E-B85B-505419604F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{24C9A740-36EB-4F87-A751-55B3D00B537A} = {06FEDA24-B16A-4EF6-B41A-A599DC316011}
 		{FB10A01B-5995-4B74-8BA6-099666FD053A} = {06FEDA24-B16A-4EF6-B41A-A599DC316011}
+		{C2AD7981-5876-464E-B85B-505419604F23} = {06FEDA24-B16A-4EF6-B41A-A599DC316011}
 	EndGlobalSection
 EndGlobal
