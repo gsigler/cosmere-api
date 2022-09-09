@@ -29,11 +29,13 @@ public class DbInitializer
         var nalthianPlanets = new List<Planet>(){
             new Planet() {Name = "Nalthis"}
         };
+        var rosharPlanet = new Planet() { Name = "Roshar" };
+        // var rosharPlanet2 = rosharPlanet
 
         var rosharanPlanets = new List<Planet>(){
             new Planet() {Name = "Ashyn"},
             new Planet() {Name = "Braize"},
-            new Planet() {Name = "Roshar"}
+            rosharPlanet
         };
 
         _context.Planets.AddRange(nalthianPlanets);
@@ -46,18 +48,44 @@ public class DbInitializer
 
         _context.Systems.AddRange(systems);
 
-        var books = new List<Data.Model.Book>(){
-            new Data.Model.Book() {
-                Title = "The Way of Kings",
-                Author = new List<string>(){"Brandon Sanderson"},
-                // PublicationDate = DateTime.Parse("August 31, 2010"),
-                Pages = 1007
-            }
+        var wayOfKings = new Data.Model.Book()
+        {
+            Title = "The Way of Kings",
+            Author = new List<string>() { "Brandon Sanderson" },
+            PublicationDate = DateTime.Parse("August 31, 2010").ToUniversalTime(),
+            Pages = 1007,
+            WordCount = 384265,
+            Planets = new List<Data.Model.Planet>() { rosharPlanet }
+        };
+
+        var wordsOfRadiance = new Data.Model.Book()
+        {
+            Title = "Words of Radiance",
+            Author = new List<string>() { "Brandon Sanderson" },
+            PublicationDate = DateTime.Parse("March 4, 2014").ToUniversalTime(),
+            Pages = 1087,
+            WordCount = 398238,
+            Planets = new List<Data.Model.Planet>() { rosharPlanet }
+        };
+
+
+        var books = new List<Data.Model.Book>()
+        {
+            wayOfKings,
+            wordsOfRadiance
         };
 
         _context.Books.AddRange(books);
 
         _context.SaveChanges();
+
+        wayOfKings.FollowedBy = wordsOfRadiance;
+        wordsOfRadiance.PrecededBy = wayOfKings;
+
+        _context.SaveChanges();
+
+
+
     }
 
 }

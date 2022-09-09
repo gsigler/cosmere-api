@@ -24,14 +24,14 @@ public class PlanetRepository : IRepository<DTO.Planet>
 
     public async Task<DTO.Planet?> GetAsync(int id)
     {
-        var planet = await _context.Planets.SingleOrDefaultAsync(r => r.ID == id);
+        var planet = await _context.Planets.Include(planet => planet.Books).SingleOrDefaultAsync(r => r.ID == id);
         var planetDto = _mapper.Map<DTO.Planet>(planet);
         return planetDto;
     }
 
     public async Task<List<DTO.Planet>> ListAsync()
     {
-        var planets = await _context.Planets.ToListAsync();
+        var planets = await _context.Planets.Include(planet => planet.Books).ToListAsync();
         return _mapper.Map<List<DTO.Planet>>(planets);
     }
 }

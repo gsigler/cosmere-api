@@ -1,5 +1,4 @@
 using API.Cosmere.Data.DAL;
-using API.Cosmere.Data.Model;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,13 +23,19 @@ public class BookRepository : IRepository<DTO.Book>
 
     public async Task<DTO.Book?> GetAsync(int id)
     {
-        var book = await _context.Books.SingleOrDefaultAsync(r => r.ID == id);
-        return _mapper.Map<DTO.Book>(book); ;
+        var book = await _context.Books
+                    .Include(book => book.Planets)
+                    .Include(book => book.FollowedBy)
+                    .Include(book => book.PrecededBy)
+                    .SingleOrDefaultAsync(r => r.ID == id);
+        return _mapper.Map<DTO.Book>(book);
     }
 
     public async Task<List<DTO.Book>> ListAsync()
     {
-        var Books = await _context.Books.ToListAsync();
+        var Books = await _context.Books
+                        .Include(book => book.Planets)
+                        .ToListAsync();
         return _mapper.Map<List<DTO.Book>>(Books);
     }
 }

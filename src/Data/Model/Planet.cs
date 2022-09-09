@@ -7,4 +7,5 @@ public class Planet : IDbEntity
     public DateTime Created { get; set; }
     public DateTime Updated { get; set; }
     public string Name { get; set; }
+    public List<Book> Books { get; set; }
 }
