@@ -15,7 +15,7 @@ public class DbInitializer
 
     public void Run()
     {
-        _context.Database.EnsureDeleted();
+        // _context.Database.EnsureDeleted();
         _context.Database.EnsureCreated();
 
 
@@ -51,7 +51,7 @@ public class DbInitializer
         var wayOfKings = new Data.Model.Book()
         {
             Title = "The Way of Kings",
-            Author = new List<string>() { "Brandon Sanderson" },
+            // Author = new List<string>() { "Brandon Sanderson" },
             PublicationDate = DateTime.Parse("August 31, 2010").ToUniversalTime(),
             Pages = 1007,
             WordCount = 384265,
@@ -61,7 +61,7 @@ public class DbInitializer
         var wordsOfRadiance = new Data.Model.Book()
         {
             Title = "Words of Radiance",
-            Author = new List<string>() { "Brandon Sanderson" },
+            // Author = new List<string>() { "Brandon Sanderson" },
             PublicationDate = DateTime.Parse("March 4, 2014").ToUniversalTime(),
             Pages = 1087,
             WordCount = 398238,

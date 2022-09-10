@@ -24,7 +24,7 @@ public class RealmRepository : IRepository<Repository.DTO.Realm>
 
     public async Task<Repository.DTO.Realm?> GetAsync(int id)
     {
-        var realm = await _context.Realms.SingleOrDefaultAsync(r => r.ID == id);
+        var realm = await _context.Realms.SingleOrDefaultAsync(r => r.Id == id);
         return _mapper.Map<DTO.Realm>(realm);
     }
 

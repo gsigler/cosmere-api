@@ -24,7 +24,7 @@ public class PlanetRepository : IRepository<DTO.Planet>
 
     public async Task<DTO.Planet?> GetAsync(int id)
     {
-        var planet = await _context.Planets.Include(planet => planet.Books).SingleOrDefaultAsync(r => r.ID == id);
+        var planet = await _context.Planets.Include(planet => planet.Books).SingleOrDefaultAsync(r => r.Id == id);
         var planetDto = _mapper.Map<DTO.Planet>(planet);
         return planetDto;
     }

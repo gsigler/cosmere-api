@@ -27,7 +27,7 @@ public class BookRepository : IRepository<DTO.Book>
                     .Include(book => book.Planets)
                     .Include(book => book.FollowedBy)
                     .Include(book => book.PrecededBy)
-                    .SingleOrDefaultAsync(r => r.ID == id);
+                    .SingleOrDefaultAsync(r => r.Id == id);
         return _mapper.Map<DTO.Book>(book);
     }
 

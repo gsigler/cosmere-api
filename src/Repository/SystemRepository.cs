@@ -24,7 +24,7 @@ public class SystemRepository : IRepository<Repository.DTO.System>
 
     public async Task<Repository.DTO.System?> GetAsync(int id)
     {
-        var system = await _context.Systems.Include(s => s.Planets).SingleOrDefaultAsync(r => r.ID == id);
+        var system = await _context.Systems.Include(s => s.Planets).SingleOrDefaultAsync(r => r.Id == id);
         return _mapper.Map<DTO.System>(system);
     }
 
