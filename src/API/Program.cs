@@ -21,6 +21,9 @@ builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Realm>, RealmR
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Planet>, PlanetRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.System>, SystemRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Book>, BookRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Author>, AuthorRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Illustrator>, IllustratorRepository>();
+
 builder.Services.AddTransient<DbInitializer>();
 
 

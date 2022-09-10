@@ -10,6 +10,8 @@ public class CosmereContext : DbContext
     public DbSet<Planet> Planets { get; set; }
     public DbSet<Data.Model.System> Systems { get; set; }
     public DbSet<Data.Model.Book> Books { get; set; }
+    public DbSet<Data.Model.Author> Authors { get; set; }
+    public DbSet<Data.Model.Illustrator> Illustrators { get; set; }
 
     public CosmereContext(DbContextOptions<CosmereContext> options) : base(options)
     {

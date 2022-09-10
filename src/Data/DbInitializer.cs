@@ -15,7 +15,7 @@ public class DbInitializer
 
     public void Run()
     {
-        // _context.Database.EnsureDeleted();
+        _context.Database.EnsureDeleted();
         _context.Database.EnsureCreated();
 
 
@@ -48,20 +48,36 @@ public class DbInitializer
 
         _context.Systems.AddRange(systems);
 
+        var authors = new List<Data.Model.Author>()
+        {
+           new Author() { Name = "Brandon Sanderson" }
+        };
+
+        var illustrators = new List<Data.Model.Illustrator>() {
+            new Illustrator() { Name = "Isaac Stewart" }
+        };
+
+        _context.Authors.AddRange(authors);
+        _context.Illustrators.AddRange(illustrators);
+
         var wayOfKings = new Data.Model.Book()
         {
             Title = "The Way of Kings",
-            // Author = new List<string>() { "Brandon Sanderson" },
+            Authors = authors,
+            Illustrators = illustrators,
             PublicationDate = DateTime.Parse("August 31, 2010").ToUniversalTime(),
             Pages = 1007,
             WordCount = 384265,
             Planets = new List<Data.Model.Planet>() { rosharPlanet }
         };
 
+
+
         var wordsOfRadiance = new Data.Model.Book()
         {
             Title = "Words of Radiance",
-            // Author = new List<string>() { "Brandon Sanderson" },
+            Authors = authors,
+            Illustrators = illustrators,
             PublicationDate = DateTime.Parse("March 4, 2014").ToUniversalTime(),
             Pages = 1087,
             WordCount = 398238,

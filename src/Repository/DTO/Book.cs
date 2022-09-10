@@ -6,8 +6,8 @@ public class Book
     public int ID { get; set; }
     public string Url { get; set; }
     public string Title { get; set; }
-    public List<string> Author { get; set; }
-    public List<string> Illustrator { get; set; }
+    public List<string> Authors { get; set; }
+    public List<string> Illustrators { get; set; }
     public DateTime PublicationDate { get; set; }
     public List<string> Planets { get; set; }
     public int Pages { get; set; }
