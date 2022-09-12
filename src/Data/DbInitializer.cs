@@ -131,8 +131,19 @@ public class DbInitializer
                 Name = "Feruchemy"
             },
         };
-
         _context.Magics.AddRange(magics);
+
+        // Shards
+
+        var shards = new List<Data.Model.Shard>()
+        {
+            new Data.Model.Shard()
+            {
+                Name = "Ruin"
+            }
+        };
+
+        _context.Shards.AddRange(shards);
 
         _context.SaveChanges();
 

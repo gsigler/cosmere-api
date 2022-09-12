@@ -21,6 +21,9 @@ public class AutoMapping : Profile
         CreateMap<API.Cosmere.Data.Model.Magic, API.Cosmere.Repository.DTO.Magic>()
             .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/magics/{src.Id}/"));
 
+        CreateMap<API.Cosmere.Data.Model.Shard, API.Cosmere.Repository.DTO.Shard>()
+                    .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/shards/{src.Id}/"));
+
         CreateMap<API.Cosmere.Data.Model.Author, API.Cosmere.Repository.DTO.Author>()
             .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/authors/{src.Id}/"))
             .ForMember(dest => dest.Books, act => act.MapFrom(src => src.Books.Select(x => $"{baseUrl}/books/{x.Id}/")));

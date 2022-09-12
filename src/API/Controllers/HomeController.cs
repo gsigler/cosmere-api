@@ -25,6 +25,8 @@ public class HomeController : ControllerBase
             {"books", $"{baseUrl}/books"},
             {"people", $"{baseUrl}/people"},
             {"magic", $"{baseUrl}/magics"},
+            {"shards",  $"{baseUrl}/shards"},
+
         };
     }
 

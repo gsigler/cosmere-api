@@ -24,6 +24,7 @@ builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Author>, Autho
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Illustrator>, IllustratorRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Person>, PersonRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Magic>, MagicRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Shard>, ShardRepository>();
 
 builder.Services.AddTransient<DbInitializer>();
 
