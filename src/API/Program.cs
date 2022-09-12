@@ -1,5 +1,4 @@
 using API.Cosmere.Data;
-using API.Cosmere.Data.DAL;
 using API.Cosmere.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,6 +22,8 @@ builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.System>, Syste
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Book>, BookRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Author>, AuthorRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Illustrator>, IllustratorRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Person>, PersonRepository>();
+builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Magic>, MagicRepository>();
 
 builder.Services.AddTransient<DbInitializer>();
 

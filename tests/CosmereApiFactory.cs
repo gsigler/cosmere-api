@@ -1,4 +1,4 @@
-using API.Cosmere.Data.DAL;
+using API.Cosmere.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;

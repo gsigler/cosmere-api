@@ -16,13 +16,15 @@ public class HomeController : ControllerBase
         _logger = logger;
     }
 
-    public Dictionary<string, string> Home()
+    public SortedDictionary<string, string> Home()
     {
-        return new Dictionary<string, string>(){
+        return new SortedDictionary<string, string>(){
             {"realms", $"{baseUrl}/realms"},
             {"systems",  $"{baseUrl}/systems"},
             {"planets", $"{baseUrl}/planets"},
             {"books", $"{baseUrl}/books"},
+            {"people", $"{baseUrl}/people"},
+            {"magic", $"{baseUrl}/magics"},
         };
     }
 

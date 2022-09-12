@@ -1,4 +1,4 @@
-using API.Cosmere.Data.DAL;
+using API.Cosmere.Data;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 

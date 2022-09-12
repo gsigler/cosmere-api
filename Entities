@@ -1,0 +1,19 @@
+Worlds
+    -> People
+    -> Magic
+    -> Lifeforms
+Shards
+    -> Planet
+    -> Book
+    -> Magic
+    -> Vessel (Person)
+Books
+    -> Shards
+    -> People
+    -> Magic
+    -> Lifeforms
+People
+Magic
+Lifeforms   
+Realms
+

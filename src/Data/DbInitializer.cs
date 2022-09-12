@@ -1,4 +1,4 @@
-using API.Cosmere.Data.DAL;
+using API.Cosmere.Data;
 using API.Cosmere.Data.Model;
 
 namespace API.Cosmere.Data;
@@ -18,7 +18,7 @@ public class DbInitializer
         _context.Database.EnsureDeleted();
         _context.Database.EnsureCreated();
 
-
+        // Realms
         var realms = new List<Realm>(){
                 new Realm() {Name = "Spiritual"},
                 new Realm() {Name = "Physical"},
@@ -26,6 +26,7 @@ public class DbInitializer
             };
         _context.Realms.AddRange(realms);
 
+        // Planets
         var nalthianPlanets = new List<Planet>(){
             new Planet() {Name = "Nalthis"}
         };
@@ -41,6 +42,7 @@ public class DbInitializer
         _context.Planets.AddRange(nalthianPlanets);
         _context.Planets.AddRange(rosharanPlanets);
 
+        // Systems
         var systems = new List<Data.Model.System>(){
             new Data.Model.System() {Name = "Nalthian", Planets = nalthianPlanets},
             new Data.Model.System() {Name = "Rosharan", Planets = rosharanPlanets}
@@ -48,11 +50,12 @@ public class DbInitializer
 
         _context.Systems.AddRange(systems);
 
+        // Authors
         var authors = new List<Data.Model.Author>()
         {
            new Author() { Name = "Brandon Sanderson" }
         };
-
+        // Illustrators
         var illustrators = new List<Data.Model.Illustrator>() {
             new Illustrator() { Name = "Isaac Stewart" }
         };
@@ -60,6 +63,7 @@ public class DbInitializer
         _context.Authors.AddRange(authors);
         _context.Illustrators.AddRange(illustrators);
 
+        // Books
         var wayOfKings = new Data.Model.Book()
         {
             Title = "The Way of Kings",
@@ -70,8 +74,6 @@ public class DbInitializer
             WordCount = 384265,
             Planets = new List<Data.Model.Planet>() { rosharPlanet }
         };
-
-
 
         var wordsOfRadiance = new Data.Model.Book()
         {
@@ -95,11 +97,44 @@ public class DbInitializer
 
         _context.SaveChanges();
 
+        // Book Relationships
         wayOfKings.FollowedBy = wordsOfRadiance;
         wordsOfRadiance.PrecededBy = wayOfKings;
 
-        _context.SaveChanges();
 
+        // People
+
+        var people = new List<Data.Model.Person>()
+        {
+            new Data.Model.Person()
+            {
+                Name = "Kelsier"
+            },
+            new Data.Model.Person()
+            {
+                Name = "Vin"
+            }
+        };
+
+        _context.People.AddRange(people);
+
+
+        // Magics
+        var magics = new List<Data.Model.Magic>()
+        {
+            new Data.Model.Magic()
+            {
+                Name = "Allomancy"
+            },
+            new Data.Model.Magic()
+            {
+                Name = "Feruchemy"
+            },
+        };
+
+        _context.Magics.AddRange(magics);
+
+        _context.SaveChanges();
 
 
     }
