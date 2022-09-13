@@ -14,7 +14,9 @@ public class Book : IDbEntity
     public int Pages { get; set; }
     public int WordCount { get; set; }
     public List<Planet> Planets { get; set; } = new List<Planet>();
-
+    public List<Shard> Shards { get; set; } = new List<Shard>();
+    public List<Magic> Magics { get; set; } = new List<Magic>();
+    public List<Person> Slivers { get; set; } = new List<Person>();
     public int? PrecededById { get; set; }
     public int? FollowedById { get; set; }
     [ForeignKey("FollowedById")]

@@ -23,13 +23,25 @@ public class ShardRepository : IRepository<Repository.DTO.Shard>
 
     public async Task<Repository.DTO.Shard?> GetAsync(int id)
     {
-        var shard = await _context.Shards.SingleOrDefaultAsync(r => r.Id == id);
+        var shard = await _context.Shards
+                                  .Include(shard => shard.Vessel)
+                                  .Include(shard => shard.Slivers)
+                                  .Include(shard => shard.Magics)
+                                  .Include(shard => shard.Books)
+                                  .Include(shard => shard.Planets)
+                                  .SingleOrDefaultAsync(r => r.Id == id);
         return _mapper.Map<DTO.Shard>(shard);
     }
 
     public async Task<List<Repository.DTO.Shard>> ListAsync()
     {
-        var shards = await _context.Shards.ToListAsync();
+        var shards = await _context.Shards
+                                   .Include(shard => shard.Vessel)
+                                   .Include(shard => shard.Slivers)
+                                   .Include(shard => shard.Magics)
+                                   .Include(shard => shard.Books)
+                                   .Include(shard => shard.Planets)
+                                   .ToListAsync();
         return _mapper.Map<List<DTO.Shard>>(shards);
     }
 }

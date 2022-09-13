@@ -9,4 +9,5 @@ public class Planet : IDbEntity
     public string Name { get; set; }
     public System System { get; set; }
     public List<Book> Books { get; set; }
+    public List<Shard> Shards { get; set; }
 }

@@ -22,7 +22,12 @@ public class AutoMapping : Profile
             .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/magics/{src.Id}/"));
 
         CreateMap<API.Cosmere.Data.Model.Shard, API.Cosmere.Repository.DTO.Shard>()
-                    .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/shards/{src.Id}/"));
+                    .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/shards/{src.Id}/"))
+                    .ForMember(dest => dest.Books, act => act.MapFrom(src => src.Books.Select(x => $"{baseUrl}/books/{x.Id}/")))
+                    .ForMember(dest => dest.Magics, act => act.MapFrom(src => src.Magics.Select(x => $"{baseUrl}/magics/{x.Id}/")))
+                    .ForMember(dest => dest.Slivers, act => act.MapFrom(src => src.Slivers.Select(x => $"{baseUrl}/people/{x.Id}/")))
+                    .ForMember(dest => dest.Planets, act => act.MapFrom(src => src.Planets.Select(x => $"{baseUrl}/planets/{x.Id}/")))
+                    .ForMember(dest => dest.Vessel, act => act.MapFrom(src => $"{baseUrl}/people/{src.Vessel.Id}/"));
 
         CreateMap<API.Cosmere.Data.Model.Author, API.Cosmere.Repository.DTO.Author>()
             .ForMember(dest => dest.Url, act => act.MapFrom(src => $"{baseUrl}/authors/{src.Id}/"))
