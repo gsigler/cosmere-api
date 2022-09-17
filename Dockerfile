@@ -11,7 +11,7 @@ COPY src/Repository/Repository.csproj ./src/Repository/
 RUN dotnet restore
 
 # Copy everything else and build
-COPY ../src ./src
+COPY ./src ./src
 RUN dotnet publish -c Release -o out
 
 # Build runtime image
