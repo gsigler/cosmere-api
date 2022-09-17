@@ -14,11 +14,10 @@ public class BookRepository : IRepository<DTO.Book>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(DTO.Book value)
+
+    public async Task<DTO.Book> UpdateAsync(DTO.Book value)
     {
-        var book = _mapper.Map<Data.Model.Book>(value);
-        await _context.Books.AddAsync(book);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<DTO.Book?> GetAsync(int id)

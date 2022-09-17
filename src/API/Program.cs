@@ -1,3 +1,4 @@
+using API.Cosmere.Config;
 using API.Cosmere.Data;
 using API.Cosmere.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -13,8 +14,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+var dbConfig = builder.Configuration.GetRequiredSection("DB").Get<DatabaseConfig>();
+
+var cs = $"Host={dbConfig.Host};Username={dbConfig.User};Password={dbConfig.Password};Database={dbConfig.Name}";
 builder.Services.AddDbContext<CosmereContext>(options =>
-            options.UseNpgsql("Host=localhost:5432;Database=CosmereDB;Username=postgres;Password=password"));
+            options.UseNpgsql(cs));
+
 
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Realm>, RealmRepository>();
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Planet>, PlanetRepository>();
@@ -27,8 +32,6 @@ builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Magic>, MagicR
 builder.Services.AddScoped<IRepository<API.Cosmere.Repository.DTO.Shard>, ShardRepository>();
 
 builder.Services.AddTransient<DbInitializer>();
-
-
 
 
 var app = builder.Build();

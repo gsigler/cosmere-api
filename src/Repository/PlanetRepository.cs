@@ -15,11 +15,9 @@ public class PlanetRepository : IRepository<DTO.Planet>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(DTO.Planet value)
+    public async Task<DTO.Planet> UpdateAsync(DTO.Planet value)
     {
-        var planet = _mapper.Map<Data.Model.Planet>(value);
-        await _context.Planets.AddAsync(planet);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<DTO.Planet?> GetAsync(int id)

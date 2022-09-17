@@ -15,11 +15,12 @@ public class RealmRepository : IRepository<Repository.DTO.Realm>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Realm value)
+    public async Task<Repository.DTO.Realm> UpdateAsync(Repository.DTO.Realm value)
     {
         var realm = _mapper.Map<Data.Model.Realm>(value);
-        await _context.Realms.AddAsync(realm);
+        _context.Realms.Update(realm);
         await _context.SaveChangesAsync();
+        return _mapper.Map<DTO.Realm>(realm);
     }
 
     public async Task<Repository.DTO.Realm?> GetAsync(int id)

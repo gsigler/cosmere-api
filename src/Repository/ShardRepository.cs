@@ -14,11 +14,9 @@ public class ShardRepository : IRepository<Repository.DTO.Shard>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Shard value)
+    public async Task<Repository.DTO.Shard> UpdateAsync(Repository.DTO.Shard value)
     {
-        var shard = _mapper.Map<Data.Model.Shard>(value);
-        await _context.Shards.AddAsync(shard);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<Repository.DTO.Shard?> GetAsync(int id)

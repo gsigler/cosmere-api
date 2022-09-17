@@ -15,11 +15,9 @@ public class MagicRepository : IRepository<Repository.DTO.Magic>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Magic value)
+    public async Task<DTO.Magic> UpdateAsync(DTO.Magic value)
     {
-        var magic = _mapper.Map<Data.Model.Magic>(value);
-        await _context.Magics.AddAsync(magic);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<Repository.DTO.Magic?> GetAsync(int id)

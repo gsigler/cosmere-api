@@ -20,7 +20,11 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DB__HOST": "db.bit.io",
+                "DB__USER": "gsigler",
+                "DB__NAME":"gsigler/cosmere-db",
+                "DB__PASSWORD" : "v2_3u6kh_8gjC95Srnrwur43VkjXuTHq"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

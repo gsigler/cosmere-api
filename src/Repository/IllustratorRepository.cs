@@ -14,11 +14,9 @@ public class IllustratorRepository : IRepository<Repository.DTO.Illustrator>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Illustrator value)
+    public async Task<DTO.Illustrator> UpdateAsync(DTO.Illustrator value)
     {
-        var illustrator = _mapper.Map<Data.Model.Illustrator>(value);
-        await _context.Illustrators.AddAsync(illustrator);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<Repository.DTO.Illustrator?> GetAsync(int id)

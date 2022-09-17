@@ -15,11 +15,12 @@ public class SystemRepository : IRepository<Repository.DTO.System>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.System value)
+    public async Task<Repository.DTO.System?> UpdateAsync(Repository.DTO.System value)
     {
         var system = _mapper.Map<Data.Model.System>(value);
         await _context.Systems.AddAsync(system);
         await _context.SaveChangesAsync();
+        return _mapper.Map<DTO.System>(system);
     }
 
     public async Task<Repository.DTO.System?> GetAsync(int id)

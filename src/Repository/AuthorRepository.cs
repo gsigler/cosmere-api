@@ -14,11 +14,10 @@ public class AuthorRepository : IRepository<Repository.DTO.Author>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Author value)
+
+    public async Task<DTO.Author> UpdateAsync(DTO.Author value)
     {
-        var author = _mapper.Map<Data.Model.Author>(value);
-        await _context.Authors.AddAsync(author);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<Repository.DTO.Author?> GetAsync(int id)

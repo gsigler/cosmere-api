@@ -15,7 +15,6 @@ public class DbInitializer
 
     public void Run()
     {
-        _context.Database.EnsureDeleted();
         _context.Database.EnsureCreated();
 
         // Realms

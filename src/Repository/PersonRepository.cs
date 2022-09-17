@@ -15,11 +15,9 @@ public class PersonRepository : IRepository<Repository.DTO.Person>
         _context = context;
         _mapper = mapper;
     }
-    public async Task SaveAsync(Repository.DTO.Person value)
+    public async Task<DTO.Person> UpdateAsync(DTO.Person value)
     {
-        var person = _mapper.Map<Data.Model.Person>(value);
-        await _context.People.AddAsync(person);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
     public async Task<Repository.DTO.Person?> GetAsync(int id)

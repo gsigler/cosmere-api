@@ -29,6 +29,24 @@ public class RealmsController : ControllerBase
         return realm;
     }
 
+    [HttpPut("{id}")]
+    public async Task<ActionResult<Repository.DTO.Realm>> Put(int id, Repository.DTO.Realm realm)
+    {
+        if (id != realm.Id)
+        {
+            return BadRequest("Id's do not match");
+        }
+
+        var realmToUpdate = await _realmRepository.GetAsync(id);
+
+        if (realmToUpdate == null)
+        {
+            return NotFound($"Realm with Id = {id} not found");
+        }
+
+        return await _realmRepository.UpdateAsync(realm);
+    }
+
     public async Task<ActionResult<List<Repository.DTO.Realm>>> List()
     {
         var realms = await _realmRepository.ListAsync();
