@@ -21,10 +21,21 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "DB__HOST": "db.bit.io",
-                "DB__USER": "gsigler",
-                "DB__NAME":"gsigler/cosmere-db",
-                "DB__PASSWORD" : "v2_3u6kh_8gjC95Srnrwur43VkjXuTHq"
+                // BIT.IO DB
+                // "DB__HOST": "db.bit.io",
+                // "DB__USER": "gsigler",
+                // "DB__NAME":"gsigler/cosmere-db",
+                // "DB__PASSWORD" : "v2_3u6kh_8gjC95Srnrwur43VkjXuTHq"
+                
+                // Host=localhost:5432;Database=CosmereDB;Username=postgres;Password=password
+                // LOCALHOST DB
+                "DB__HOST": "localhost:5432",
+                "DB__USER": "postgres",
+                "DB__NAME":"CosmereDB",
+                "DB__PASSWORD" : "password",
+
+                "APP__BASEURL": "https://localhost:7071/api"
+
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

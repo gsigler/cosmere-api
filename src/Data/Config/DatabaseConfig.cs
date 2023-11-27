@@ -1,5 +1,5 @@
 #nullable disable
-namespace API.Cosmere.Config;
+namespace API.Data.Cosmere.Config;
 
 public class DatabaseConfig
 {

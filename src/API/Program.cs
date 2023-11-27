@@ -1,6 +1,6 @@
-using API.Cosmere.Config;
 using API.Cosmere.Data;
 using API.Cosmere.Repository;
+using API.Data.Cosmere.Config;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +14,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.Configure<DatabaseConfig>(
+    builder.Configuration.GetRequiredSection("DB"));
+builder.Services.Configure<AppConfig>(
+    builder.Configuration.GetRequiredSection("APP"));
 var dbConfig = builder.Configuration.GetRequiredSection("DB").Get<DatabaseConfig>();
-
 var cs = $"Host={dbConfig.Host};Username={dbConfig.User};Password={dbConfig.Password};Database={dbConfig.Name}";
 builder.Services.AddDbContext<CosmereContext>(options =>
             options.UseNpgsql(cs));
